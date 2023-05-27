@@ -23,6 +23,7 @@ function reload(arr, place) {
             let p = document.createElement('p')
             let id = document.createElement('p')
             let albumID = document.createElement('p')
+            let close = document.createElement('img')
 
             modal.classList.add('modal')
             p.innerHTML = item.title
@@ -30,8 +31,14 @@ function reload(arr, place) {
             albumID.innerHTML = `Album Id: ${item.albumId}`
 
             img.src = item.thumbnailUrl
+            close.src = './img/close.svg'
+            close.classList.add('close')
 
-            modal.append(img, albumID, id, p)
+            close.onclick = () => {
+                modal.style.display = 'none'
+            }
+
+            modal.append(close, img, albumID, id, p)
             place.append(modal)
         }
 
